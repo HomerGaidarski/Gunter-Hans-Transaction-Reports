@@ -5,9 +5,6 @@ The owner of Günter Hans had transaction data all in csv files and wanted a way
 
 The site is very simple, it really only has one significant page that the user visits, index.php, which can only be accessed after login. There is no register option on the site because the site is primarily for one user and for this reason I did not include the url of the website anywhere in this repository. At index.php, the user can generate graphical transaction reports that utilize by altering various selection boxes. There is also a monthly reporting feature that emails a generated url to a specific email from a python script that runs on the server every month via crontab. The url will take the user to a page that only shows data for a single month. Boostrap is primarily used for the CSS and chart.js is used to make the graphs.
 
-![Alt text](/relative/path/to/averageTipPercent.PNG?raw=true "")
-![Alt text](/relative/path/to/totalSales.PNG?raw=true "")
-
 There are 6 types of reports, for line graphs, the x-axis is always dates, for bar graphs, the x-axis is always employee names:
 
 1. Total Sales - shows a line graph with the total amount of money earned on the y-axis
@@ -23,3 +20,11 @@ There are 6 types of reports, for line graphs, the x-axis is always dates, for b
 6. Average Tip Percent - shows a bar graph with the average tip percent on the y-axis
 
 For all these reports, the user can set the start date, end date, start time, end time, and can even select which days of the week to include. The date range pulls up a calendar when clicked and also includes quick selection features such as selecting Today, Yesterday, This Week, etc. The start and end time selectors have a clock button that allows the user to set the time from an analog clock perspective. So all these selections just need a mouse to operate, but if the user wants to edit with the keyboard they can do that of course too. Being able to change these time parameters allows the user to see how business is doing during certain times and days and take note of when they will be busy, and when they won't be busy so they can plan accordingly by getting more or less employees to work for those times and days.
+
+Average Tip Percent Example
+
+![picture of average tip percent graph with maximum range of values](https://raw.githubusercontent.com/HomerGaidarski/Gunter-Hans-Transaction-Reports/master/averageTipPercent.PNG "Average Tip Percent Example")
+
+Total Sales With Altered Settings Example
+
+![picture of total sales graph with altered settings](https://raw.githubusercontent.com/HomerGaidarski/Gunter-Hans-Transaction-Reports/master/totalSales.PNG "Total Sales Example")
