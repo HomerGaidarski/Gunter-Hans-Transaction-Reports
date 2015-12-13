@@ -1,0 +1,125 @@
+			select option
+            {
+                padding: 4px;
+                outline: none;
+            }
+            
+            .content
+            {
+                width: 90%;
+                margin: 10px auto;
+            }
+            
+            .bootstrap-select .btn:focus
+            {
+                outline:none !important;
+                box-shadow: none !important;
+            }
+            
+            .bootstrap-select
+            {
+                outline:none;
+                box-shadow: none !important;
+            }
+            
+            .daterangepicker
+            {
+                float: none;
+                margin-top: -100px;
+                margin-left: -20px;
+            }
+            
+            #constraints
+            {
+                /*height: 64px;*/
+            }
+            
+            #cradle
+            {
+                /* */
+                width: 100%;
+            }
+            
+            canvas 
+            { 
+                height: 100%; 
+                width: 100%; 
+                display: block;
+            }
+            
+            input[type="checkbox"]
+            {
+                margin: 5px 5px;
+            }
+            
+            td div
+            {
+                padding: 5px;
+                display: block;
+            }
+            
+            span
+            {
+              display: inline-block;
+              vertical-align: middle;
+            }
+            
+            @keyframes loadingAnimation
+            {
+                from
+                {
+                    transform: rotate(0deg);
+                }
+                to
+                {
+                    transform: rotate(360deg);
+                }
+            }
+            
+            #progressDisplayBackground
+            {
+                background-color: ghostwhite;
+                opacity: .4;
+                width: 97.5%;
+                height: 100%;
+                position: absolute;
+                margin: auto;
+                top: 0px;
+                left: 1.25%;
+                border-radius: 5px;
+                text-align: center;
+                transition: opacity 1s;
+            }
+            
+            #progressDisplayFront
+            {
+                background-color: gray;
+                vertical-align: center;
+                width: 50%;
+                height: 50%;
+                position: absolute;
+                top: 25%;
+                left: 25%;
+                border-radius: 10px;
+                text-align: center;
+                border: 1px solid black;
+            }
+            
+            #loaderIcon
+            {
+                animation-name: loadingAnimation;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                font-size: 100pt;
+                position: absolute;
+                left: 45%;
+                top: 45%;
+                transition: opacity 1s;
+            }
+            
+            #loadingText
+            {
+                margin-top: 200px;
+                font-size: 70pt;
+                transition: opacity 1s;
+            }

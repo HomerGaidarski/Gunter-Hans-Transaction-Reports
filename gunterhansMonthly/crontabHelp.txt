@@ -1,0 +1,16 @@
+To send monthly gunter hans report emails,
+do the following in the console of your server:
+
+First open a new crontab:
+
+crontab -e
+
+Next add the following lines to the bottom of the crontab:
+
+0 0 1 * * python /home/azureuser/gunterhansMonthly/sendReport.py
+@reboot python /home/azureuser/gunterhansMonthly/sendReport.py
+
+
+Your file path may vary depending on where you placed the gunterhansMonthly folder
+(the same folder this text file should be in), so edit the file path appropriately for
+both lines before saving.
