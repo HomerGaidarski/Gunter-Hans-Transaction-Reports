@@ -254,7 +254,9 @@
                 var url = "graphs.php";
                 
                 //get report type
-                var reportType = $("#reportType").val();
+                var reportTypeElement = document.getElementById("reportType");
+                var reportType = reportTypeElement.value;
+                document.getElementById("header").innerHTML = reportTypeElement.options[reportTypeElement.selectedIndex].text;
                 
                 //gather data
                 var startTime = $("#startTime").val();
