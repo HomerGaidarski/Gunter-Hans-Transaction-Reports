@@ -5,6 +5,9 @@ The owner of Günter Hans had transaction data all in csv files and wanted a way
 
 The site is very simple, it really only has one significant page that the user visits, index.php, which can only be accessed after login. There is no register option on the site because the site is primarily for one user and for this reason I did not include the url of the website anywhere in this repository. At index.php, the user can generate graphical transaction reports that utilize by altering various selection boxes. There is also a monthly reporting feature that emails a generated url to a specific email from a python script that runs on the server every month via crontab. The url will take the user to a page that only shows data for a single month. Boostrap is primarily used for the CSS and chart.js is used to make the graphs.
 
+![Alt text](/relative/path/to/averageTipPercent.PNG?raw=true "")
+![Alt text](/relative/path/to/totalSales.PNG?raw=true "")
+
 There are 6 types of reports, for line graphs, the x-axis is always dates, for bar graphs, the x-axis is always employee names:
 
 1. Total Sales - shows a line graph with the total amount of money earned on the y-axis
