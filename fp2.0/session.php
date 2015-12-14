@@ -40,7 +40,7 @@
 	{
 		$currentPage = basename($_SERVER['PHP_SELF']);
 		// prevent redirecting away from graphs.php when $.post is accessing
-		if ($currentPage == 'graphs.php')
+		if ($currentPage == 'graphs.php' || $currentPage == 'verify.php')
 		{
 			if ($_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest')
 			{
@@ -58,7 +58,7 @@
 				header("Location: login.php");
 				exit;
 			}
-			else if ($currentPage != 'monthlyReport.php')
+			else if ($currentPage != 'monthlyReport.php' && $currentPage != 'settings.php')
 			{
 				header("Location: /fp2.0/" . $page);
 				exit;

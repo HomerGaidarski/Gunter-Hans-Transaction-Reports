@@ -64,4 +64,42 @@ function retrieve_mysqli()
     return mysqli_connect("", "", "", ""); //or die ("Connection Error " . mysqli_error($link));
 }
 
+function generateHash($string)
+{
+    for ($i = 0; $i < 50; $i++)
+    {
+        $string = hash('sha256', $string);
+    }
+    return $string;
+}
+
+/* takes in a username and password, returns true if the user exists and local and database
+password hashes match, false otherwise */
+function checkCredentials($username, $password)
+{
+    $link = retrieve_mysqli();
+    //Test to see if their credentials are valid
+    $queryString = 'SELECT salt, hashed_password FROM user WHERE username = ?';
+
+    if ($stmt = mysqli_prepare($link, $queryString))
+    {
+        //Get the stored salt and hash as $dbSalt and $dbHash
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $dbSalt, $dbHash);
+        mysqli_stmt_fetch($stmt);
+
+        mysqli_stmt_close($stmt); // close prepared statement
+        mysqli_close($link); /* close connection */
+
+        //Generate the local hash to compare against $dbHash
+        $localhash = generateHash($dbSalt . $password);
+
+        //Compare the local hash and the database hash to see if they're equal
+        if ($localhash == $dbHash)
+            return true; // password hashes matched, this is a valid user
+    }
+    return false; // password hashes did not match or username didn't exist
+}
+
 ?>

@@ -69,34 +69,14 @@
 			<button class="btn btn-lg btn-primary btn-clock" type="submit">Login</button>
 		</form>
 <?php
-$link = retrieve_mysqli();
 
-//If the user tried to login....
-if (isset($_POST['username']) && isset($_POST['password']))
-{
-	$username = htmlspecialchars($_POST['username']);
-	$password = htmlspecialchars($_POST['password']);
+	//If the user tried to login....
+	if (isset($_POST['username']) && isset($_POST['password']))
+	{
+		$username = htmlspecialchars($_POST['username']);
+		$password = htmlspecialchars($_POST['password']);
 
-    //Test to see if their credentials are valid
-    $queryString = 'SELECT salt, hashed_password FROM user WHERE username = ?';
-
-    if ($stmt = mysqli_prepare($link, $queryString))
-    {
-        //Get the stored salt and hash as $dbSalt and $dbHash
-        mysqli_stmt_bind_param($stmt, "s", $username);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $dbSalt, $dbHash);
-        mysqli_stmt_fetch($stmt);
-
-        //Generate the local hash to compare against $dbHash
-        $localhash = $dbSalt . $password;
-        for ($i = 0; $i < 50; $i++)
-        {
-        	$localhash = hash('sha256', $localhash);
-        }
-
-        //Compare the local hash and the database hash to see if they're equal
-        if ($localhash == $dbHash)
+        if (checkCredentials($username, $password))
         {
             $_SESSION['loggedin'] = $username;
             if (isset($_SESSION['monthlyReportURL']))
@@ -112,16 +92,7 @@ if (isset($_POST['username']) && isset($_POST['password']))
         {
             echo '<p>Username or password is invalid.</p>';
         }
-
-        mysqli_stmt_close($stmt);
-    }
-    else
-    {
-        echo '<p>You must type in a username and a password!</p>';
-    }
-
-    mysqli_close($link); /* close connection */
-}
+	}
 ?>
 	</div>
 </body>
