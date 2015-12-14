@@ -1,18 +1,17 @@
 CREATE TABLE gh_transaction (
  
-                id bigint,
-                tran_time time,
-    tran_date date,
-    subtotal double (10, 2),
-                tip_amount double (10, 2),
-    discount double (10, 2),
-    tax double (10, 2),
-    total double (10, 2),
-    emp_id int,
+  id bigint,
+  tran_time time,
+  tran_date date,
+  subtotal double (10, 2),
+  tip_amount double (10, 2),
+  discount double (10, 2),
+  tax double (10, 2),
+  total double (10, 2),
+  emp_id int,
    
-    PRIMARY KEY (id),
-    FOREIGN KEY (emp_id) REFERENCES gh_employee(emp_id)
- 
+  PRIMARY KEY (id),
+  FOREIGN KEY (emp_id) REFERENCES gh_employee(emp_id)
 ) ENGINE=INNODB;
  
 CREATE INDEX transaction_index ON gh_transaction(tran_date, tran_time)
