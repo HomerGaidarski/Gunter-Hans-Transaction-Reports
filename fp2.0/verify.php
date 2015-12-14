@@ -14,7 +14,7 @@
 	if (myIsset($_POST['newPass']) && myIsset($_POST['verifyPass']) && $_POST['changePassSubmit'] != 'true')
 	{
 		if ($_POST['newPass'] == $_POST['verifyPass'])
-			echo 'Passwords match.';
+			echo '';
 		else
 			echo "Passwords don't match.";
 	}
@@ -25,6 +25,11 @@
      	if (checkCredentials($user, $pass))
         {
             $newPass = htmlspecialchars($_POST['newPass']);
+            if ($newPass == $pass) // if the passwords are the same don't even bother updating the database
+            {
+                echo 'Your new password must be different from your current password.';
+                exit;
+            }
 
 
             $link = retrieve_mysqli();

@@ -47,7 +47,7 @@
                 <label for="inputNewPass" class="sr-only">New Password</label>
                 <input type="password" name="verify" id="inputVerify" class="form-control" size="10" placeholder="Verify New Password" required>
                 <br>
-                <button id="changePassSubmit" class="btn btn-lg btn-primary btn-clock" type="submit">Change Password</button>
+                <input id="changePassSubmit" class="btn btn-lg btn-primary btn-clock" type="submit" disabled="true" value="Change Password">
             <div id="verifyMessage">
             </div>
         </div>
@@ -66,15 +66,19 @@
                 verifyPass: verifyPass, 
                 changePassSubmit: changePassSubmit
             };
-
-            $.post('verify.php', input, function(data)
+            if (currentPass && newPass && verifyPass)
             {
-                $('#verifyMessage').html(data);
-                if (data == "Passwords don't match.")
-                    $('button[type="submit"]').prop('disabled', true);
-                else
-                    $('button[type="submit"]').prop('disabled', false);
-            });
+                $.post('verify.php', input, function(data)
+                {
+                    $('#verifyMessage').html(data);
+                    if (data == "Passwords don't match.")
+                        $('#changePassSubmit').prop('disabled', true);
+                    else
+                        $('#changePassSubmit').prop('disabled', false);
+                });
+            }
+            else if (changePassSubmit)
+                $('#verifyMessage').html('All fields are required, please fill them in.');
         }
         $(document).ready(function()
         {
@@ -90,6 +94,17 @@
             {
                 sendData(true);
             });
+            /*
+            $('input.form-control').keyup(function(event){
+                if (event.keyCode == 13) // enter key
+                    $('#changePassSubmit').click(); 
+                // this if will only 'click' if the button is enabled
+            });
+            /* this code allows for submission by hitting enter but it is removed for now
+            because with the current logic, once could submit by hitting enter regardless of
+            matched new password and verify password, causing unwanted password change.
+            to fix this issue change the new and verify password matching to strictly javascript in this
+            file, don't bother sending to verify.php unless those passwords are matched*/
         });
     </script>
     </body>
