@@ -89,7 +89,11 @@ if (isset($_POST['username']) && isset($_POST['password']))
         mysqli_stmt_fetch($stmt);
 
         //Generate the local hash to compare against $dbHash
-        $localhash = sha1($dbSalt . $password);
+        $localhash = $dbSalt . $password;
+        for ($i = 0; $i < 50; $i++)
+        {
+        	$localhash = hash('sha256', $localhash);
+        }
 
         //Compare the local hash and the database hash to see if they're equal
         if ($localhash == $dbHash)
