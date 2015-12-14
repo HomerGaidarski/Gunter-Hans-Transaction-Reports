@@ -1,0 +1,7 @@
+C:\Users\Jared\Source\Repos\GH_DataImporter\GH_DataImporter\GH_DataImporter\bin\Debug\GH_DataImporter.exe.config
+C:\Users\Jared\Source\Repos\GH_DataImporter\GH_DataImporter\GH_DataImporter\bin\Debug\GH_DataImporter.exe
+C:\Users\Jared\Source\Repos\GH_DataImporter\GH_DataImporter\GH_DataImporter\bin\Debug\GH_DataImporter.pdb
+C:\Users\Jared\Source\Repos\GH_DataImporter\GH_DataImporter\GH_DataImporter\obj\Debug\GH_DataImporter.csprojResolveAssemblyReference.cache
+C:\Users\Jared\Source\Repos\GH_DataImporter\GH_DataImporter\GH_DataImporter\obj\Debug\GH_DataImporter.exe
+C:\Users\Jared\Source\Repos\GH_DataImporter\GH_DataImporter\GH_DataImporter\obj\Debug\GH_DataImporter.pdb
+C:\Users\Jared\Source\Repos\GH_DataImporter\GH_DataImporter\GH_DataImporter\bin\Debug\MySql.Data.dll
